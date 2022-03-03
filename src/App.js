@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import MainContent from "./MainContent";
+
+import { RoomProvider } from "@liveblocks/react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RoomProvider id="slide-clone">
+      <div className="window main-content">
+        <div className="title-bar">
+          <div className="title-bar-text">Question time</div>
+          <div className="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div className="window-body">
+          <MainContent />
+        </div>
+      </div>
+    </RoomProvider>
   );
 }
 

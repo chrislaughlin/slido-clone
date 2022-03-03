@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '98.css';
+import './index.css';
+
+import { createClient } from "@liveblocks/client";
+import { LiveblocksProvider } from "@liveblocks/react";
+import { key } from "./api";
+
+const client = createClient({
+  publicApiKey: key,
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <LiveblocksProvider client={client}>
+      <App />
+    </LiveblocksProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
